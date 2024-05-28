@@ -1,18 +1,18 @@
-import '@/styles/common.scss'
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import "@/styles/common.scss";
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 
-import App from './App.vue'
-import router from './router'
-import { getCategoryAPI } from './apis/testAPI'
+import App from "./App.vue";
+import router from "./router";
+import { getCategoryAPI } from "./apis/layout";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(createPinia())
-app.use(router)
+app.use(createPinia());
+app.use(router);
 
-app.mount('#app')
+app.mount("#app");
 
-getCategoryAPI().then(res =>{
+getCategoryAPI().then((res) => {
   console.log(res);
-})
+});
