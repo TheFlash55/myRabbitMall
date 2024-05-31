@@ -19,6 +19,10 @@ const router = createRouter({
           path: "category/sub/:id", //二级分类页面
           component: () => import("@/views/SubCategory/index.vue"),
         },
+        {
+          path: "detail/:id", //二级分类页面
+          component: () => import("@/views/Detail/index.vue"),
+        },
       ],
     },
     {
