@@ -2,7 +2,11 @@
 import { getDetail } from "@/apis/detail";
 import { useRoute } from "vue-router";
 import DetailHot from "./components/DetailHot.vue";
-import ImageView from "@/components/ImageView/index.vue";
+
+//sku组件触发方法
+const skuChange = (sku) => {
+  console.log(sku);
+};
 
 const goods = ref({});
 const route = useRoute();
@@ -86,7 +90,7 @@ onMounted(() => getGoods());
                 </dl>
               </div>
               <!-- sku组件 -->
-
+              <Sku :goods="goods" @change="skuChange" />
               <!-- 数据组件 -->
 
               <!-- 按钮组件 -->
