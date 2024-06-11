@@ -1,8 +1,12 @@
 <script setup>
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/userStore";
+const router = useRouter();
+const userStore = useUserStore();
 // 1. 准备表单对象
 const form = ref({
-  account: "",
-  password: "",
+  account: "heima290",
+  password: "hm#qd@23!",
   agree: true,
 });
 
@@ -31,9 +35,14 @@ const rules = {
 //form实例统一校验
 const formRef = ref(null);
 const doLogin = () => {
-  formRef.value.validate((valid) => {
+  formRef.value.validate(async (valid) => {
     // valid: 所有表单都通过校验  才为true
-    console.log(valid);
+    if (valid) {
+      const { account, password } = form.value;
+      const res = await userStore.getUserInfo({ account, password });
+      ElMessage({ type: "success", message: "登录成功" });
+      router.replace("/");
+    }
   });
 };
 </script>
