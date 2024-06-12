@@ -23,6 +23,10 @@ const router = createRouter({
           path: "detail/:id", //二级分类页面
           component: () => import("@/views/Detail/index.vue"),
         },
+        {
+          path: "cartlist",
+          component: () => import("@/views/CartList/index.vue"),
+        },
       ],
     },
     {

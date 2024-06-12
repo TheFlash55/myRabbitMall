@@ -1,12 +1,15 @@
 <script setup>
+import { useCartStore } from "@/stores/cartStore";
 import { useUserStore } from "@/stores/userStore";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const userStore = useUserStore();
+const cartStore = useCartStore();
 const doLogOut = () => {
   //1.清除用户信息
   userStore.clearUserInfo();
+  cartStore.clearCart();
   //2.跳转到登录页面
   router.push("/login");
 };
